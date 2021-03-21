@@ -11,7 +11,6 @@
       <meta name="generator" content="사용한 프로그램">
 
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&display=swap&subset=korean">
-      <link rel="stylesheet" href="./reset.css">
       <link rel="stylesheet" href="./index.css">
 
       <title>그림판</title>
@@ -26,7 +25,20 @@
       </noscript>
 
    <!-- layout =============== -->
-
+      <canvas id="jsCanvas" class="js-canvas"></canvas>
+      <div class="paint-control">
+         <ul class="control__colors" id="controlColors">
+            <li class="colors__color"></li>
+            <li class="colors__color"></li>
+            <li class="colors__color"></li>
+            <li class="colors__color"></li>
+            <li class="colors__color"></li>
+            <li class="colors__color"></li>
+            <li class="colors__color"></li>
+            <li class="colors__color"></li>
+            <li class="colors__color"></li>
+         </ul>
+      </div>
    <!-- script ================ -->
       <script src="./app.js"></script>
    </body>
