@@ -11,9 +11,91 @@ body {
 }
 
 .js-canvas {
-   width: 500px;
+   width: 700px;
    height: 500px;
    background-color: #fff;
    border-radius: 15px;
    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(50, 50, 93, 0.11);
+}
+
+.paint-controls {
+   margin-top: 50px;
+   display: flex;
+   flex-direction: column;
+   align-items:center;
+}
+
+/* control brush size */
+.control__range {
+   margin-bottom: 30px;
+}
+
+
+/* controm Mode */
+.control__btns {
+   margin-bottom: 20px;
+}
+
+.control__btns button {
+   all: unset;
+   width: 70px;
+   text-align: center;
+   border-radius: 5px;
+   cursor:pointer;
+   background-color: #fff;
+   padding: 5px 20px;
+   border: 2px solid rgba(0, 0, 0, 0.2);
+   color: rgba(0, 0, 0, 0.8);
+   text-transform: uppercase;
+   font-size:12px;
+   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(50, 50, 93, 0.11);
+}
+
+.control__btns button:active {
+   transform: scale(0.98);
+}
+
+/* control colors */
+.control__colors {
+   display: flex; 
+}
+
+.colors__color {
+   width: 50px;
+   height: 50px;
+   border-radius: 50px;
+   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(50, 50, 93, 0.11);
+   cursor: pointer;
+   margin-right: 5px;
+}
+
+/* color palette */
+.colors__color:first-child {
+   background-color: #2c2c2c;
+}
+
+.colors__color:nth-child(2){
+   background-color: white;
+}
+.colors__color:nth-child(3){
+   background-color: tomato;
+}
+.colors__color:nth-child(4){
+   background-color: orange;
+}
+.colors__color:nth-child(5){
+   background-color: yellow;
+}
+.colors__color:nth-child(6){
+   background-color: green;
+}
+.colors__color:nth-child(7){
+   background-color: skyblue;
+}
+.colors__color:nth-child(8){
+   background-color: blue;
+}
+.colors__color:last-child{
+   background-color: purple;
+   margin-right: 0;
 }
