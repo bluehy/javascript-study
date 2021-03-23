@@ -3,6 +3,10 @@
 const canvas = document.getElementById("jsCanvas");
 const ctx = canvas.getContext("2d");
 const colors = document.getElementsByClassName("colors__color");
+const range = document.getElementById("jsRange");
+const mode = document.getElementById("jsMode");
+const save = document.getElementById("jsSave");
+
 
 // default canvas width,height
 canvas.width = 1400;
@@ -14,6 +18,7 @@ ctx.lineWidth = "2.5";
 
 //painting 상태 on/off
 let painting = false;
+let filling = false;
 
 function stopPainting(event){
    painting = false;
@@ -52,6 +57,23 @@ function handleColorClick(event){
    // console.log(picked.getPropertyValue('background-color'));
 }
 
+// change brush size - lineWidth
+function handleRangeChange(event){
+   const size = event.target.value;
+   ctx.lineWidth = size;
+}
+
+// painting mode fill<->paint
+function handleModeClick(){
+   if(filling === true){
+      filling = false;
+      mode.innerText = "Fill";
+   }else{
+      filling = true;
+      mode.innerText = "Paint";
+   }
+}
+
 // 이벤트 발생 - 기능
 if(canvas){
    canvas.addEventListener("mousemove", onMouseMove)
@@ -60,4 +82,15 @@ if(canvas){
    canvas.addEventListener("mouseleave", stopPainting);
 }
 
+// 색상 팔레트 클릭 이벤트
 Array.from(colors).forEach(item => item.addEventListener("click", handleColorClick));
+
+// range input 이벤트
+if(range) {
+   range.addEventListener("input", handleRangeChange);
+}
+
+// fill/save 버튼 이벤트
+if(mode){
+   mode.addEventListener("click",handleModeClick);
+}
