@@ -7,13 +7,16 @@ const range = document.getElementById("jsRange");
 const mode = document.getElementById("jsMode");
 const save = document.getElementById("jsSave");
 
+const INITIAL_COLOR = "#2c2c2d";
+const CANVAS_SIZE = [1400, 1000];
 
 // default canvas width,height
-canvas.width = 1400;
-canvas.height = 1000;
+canvas.width = CANVAS_SIZE[0];
+canvas.height = CANVAS_SIZE[1];
 // default ctx
-ctx.strokeStyle = "#2c2c2c";
+ctx.strokeStyle = INITIAL_COLOR;
 ctx.lineWidth = "2.5";
+ctx.fillStyle = INITIAL_COLOR;
 
 
 //painting 상태 on/off
@@ -54,6 +57,7 @@ function handleColorClick(event){
    const picked = window.getComputedStyle(event.target);
    const color = picked.getPropertyValue('background-color');
    ctx.strokeStyle = color;
+   ctx.fillStyle = color;
    // console.log(picked.getPropertyValue('background-color'));
 }
 
@@ -74,12 +78,21 @@ function handleModeClick(){
    }
 }
 
+// canvas 클릭 이벤트시, filling 값을 판별해 채우기 기능
+function handleCanvasClick(){
+   if(filling){
+      ctx.fillRect(0, 0, CANVAS_SIZE[0], CANVAS_SIZE[1]);
+   }
+}
+
+
 // 이벤트 발생 - 기능
 if(canvas){
    canvas.addEventListener("mousemove", onMouseMove)
    canvas.addEventListener("mousedown", startPainting);
    canvas.addEventListener("mouseup", stopPainting);
    canvas.addEventListener("mouseleave", stopPainting);
+   canvas.addEventListener("click",handleCanvasClick);
 }
 
 // 색상 팔레트 클릭 이벤트
