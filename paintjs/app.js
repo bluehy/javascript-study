@@ -14,6 +14,8 @@ const CANVAS_SIZE = [1400, 1000];
 canvas.width = CANVAS_SIZE[0];
 canvas.height = CANVAS_SIZE[1];
 // default ctx
+ctx.fillStyle = "#fff";
+ctx.fillRect(0, 0, CANVAS_SIZE[0], CANVAS_SIZE[1]);
 ctx.strokeStyle = INITIAL_COLOR;
 ctx.lineWidth = "2.5";
 ctx.fillStyle = INITIAL_COLOR;
@@ -85,6 +87,20 @@ function handleCanvasClick(){
    }
 }
 
+// context menu 비노출 - 우클릭 방지
+function handleCM(event){
+   event.preventDefault();
+}
+
+// save 버튼 눌렀을 때 기능
+function handleSaveClick(event){
+   const yourdrawing = canvas.toDataURL("image/png");
+   const link = document.createElement("a");
+   link.href = yourdrawing;
+   link.download = "yourdrawing🖌";
+   link.click();
+}
+
 
 // 이벤트 발생 - 기능
 if(canvas){
@@ -93,6 +109,7 @@ if(canvas){
    canvas.addEventListener("mouseup", stopPainting);
    canvas.addEventListener("mouseleave", stopPainting);
    canvas.addEventListener("click",handleCanvasClick);
+   canvas.addEventListener("contextmenu", handleCM)
 }
 
 // 색상 팔레트 클릭 이벤트
@@ -106,4 +123,9 @@ if(range) {
 // fill/save 버튼 이벤트
 if(mode){
    mode.addEventListener("click",handleModeClick);
+}
+
+// save 버튼 이벤트
+if(save){
+   save.addEventListener("click", handleSaveClick)
 }
