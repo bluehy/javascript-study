@@ -11,7 +11,8 @@ function getTime(){
    const minutes = date.getMinutes();
    const hours = date.getHours();
    const seconds = date.getSeconds();
-   clockTitle.innerText = `${hours}:${minutes}:${seconds}`;
+   // 삼항연산자
+   clockTitle.innerText = `${hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
 }
 
 function init(){
