@@ -3,10 +3,10 @@ const loginForm = document.querySelector("#loginForm");
 // = const loginForm = document.getElementById("loginForm");
    const loginInput = loginForm.querySelector("input");
    // const loinInput = document.querySelector("#loginForm input"); 도 가능.
-   const loginButton = loginForm.querySelector("button");
+   // const loginButton = loginForm.querySelector("button");
 
 
-const handleBtnClick = () => {
+const onLoginSubmit = () => {
    // console.dir(loginInput);
    // // input의 내용이 object형식으로 출력
    // console.log(loginInput.value);
@@ -20,4 +20,5 @@ const handleBtnClick = () => {
    // 유효성 검사 :: only JS 
 };
 
-loginButton.addEventListener("click",handleBtnClick);
+// loginButton.addEventListener("click",handleBtnClick);
+loginForm.addEventListener("submit", onLoginSubmit);
