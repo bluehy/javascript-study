@@ -24,12 +24,14 @@ const onLoginSubmit = (e) => {
 };
 
 const handleLinkClick = (e) => {
-   alert("clicked!"); /* 일시적으로 모든 동작을 정지시킴 */
    e.preventDefault();
+   alert("clicked!"); /* 일시적으로 모든 동작을 정지시킴 */
 }
 
 // loginButton.addEventListener("click",handleBtnClick);
 loginForm.addEventListener("submit", onLoginSubmit);
 link.addEventListener("click", handleLinkClick);
 // event가 발생할 때마다 지정된 함수를 수행한다.
-// 함수는 실행될 때, event에 대한 정보를 담은 object를 함께 전달한다. (이 때문에 기본 기능이 작동됨. ex. 새로고침, 화면이동 등)
+// 함수는 실행될 때, event에 대한 정보를 담은 object를 함께 전달한다. 
+// function({information about the event that just happened})
+// (이 때문에 기본 기능이 작동됨. ex. 새로고침, 화면이동 등)
