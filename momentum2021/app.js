@@ -11,6 +11,9 @@ const onLoginSubmit = () => {
    // // input의 내용이 object형식으로 출력
    // console.log(loginInput.value);
    // console.log("click!");
+   event.preventDefault();
+   // 기본 동작을 prevent하는 방법.
+
    const username = loginInput.value;
    if(username === "") {
       alert("이름을 입력해주세요.");
