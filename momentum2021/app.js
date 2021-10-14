@@ -25,6 +25,7 @@ const onLoginSubmit = (e) => {
 
 const handleLinkClick = (e) => {
    e.preventDefault();
+   // -> {defaultPrevented: true}
    alert("clicked!"); /* 일시적으로 모든 동작을 정지시킴 */
 }
 
