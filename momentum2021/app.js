@@ -1,16 +1,18 @@
 const loginForm = document.querySelector("#loginForm");
-// querySelector로는 id, class 모두 찾아낼 수 있기 때문에 id,class구분을 해줘야한다.
-// = const loginForm = document.getElementById("loginForm");
    const loginInput = loginForm.querySelector("input");
-   // const loinInput = document.querySelector("#loginForm input"); 도 가능.
-   // const loginButton = loginForm.querySelector("button");
-   const link = document.querySelector("a");
+   const greeting = document.querySelector("#greetingUser");
+
+const HIDDEN_CLASSNAME = "hidden";
+// string만 포함되는 변수를 대문자로 표현하는 게 일반적
+// -----------------------------------------------------------
 
 const onLoginSubmit = (e) => {
    e.preventDefault();
    const username = loginInput.value;
-   loginForm.classList.add("hidden");
+   loginForm.classList.add(HIDDEN_CLASSNAME);
    console.log(username);
+   greeting.innerText = `Hello ${username}`;
+   greeting.classList.remove(HIDDEN_CLASSNAME);
 };
 
 loginForm.addEventListener("submit", onLoginSubmit);

@@ -2,3 +2,8 @@
 .hidden {
    display:none;
 }
+
+h1 {
+   font-size: 32px;
+   font-weight: bold;
+}
