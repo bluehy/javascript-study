@@ -3,7 +3,6 @@ const loginForm = document.querySelector("#loginForm");
    const greeting = document.querySelector("#greetingUser");
 
 const HIDDEN_CLASSNAME = "hidden";
-// string만 포함되는 변수를 대문자로 표현하는 게 일반적
 // -----------------------------------------------------------
 
 const onLoginSubmit = (e) => {
