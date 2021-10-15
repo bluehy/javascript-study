@@ -6,4 +6,8 @@ const tickingTime = () => {
    console.log("hello");
 }
 
-setInterval(tickingTime, 5000);
+// setInterval(tickingTime, 5000);
+// 5초마다 실행
+// setTimeout(tickingTime, 5000);
+// 5초 후 한번 실행
+
