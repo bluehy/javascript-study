@@ -2,8 +2,16 @@
 .hidden {
    display:none;
 }
+body{
+   padding: 5px;
+}
 
 h1 {
    font-size: 32px;
+   font-weight: bold;
+}
+
+h2{
+   font-size: 18px;
    font-weight: bold;
 }
