@@ -7,9 +7,14 @@ const HIDDEN_CLASSNAME = "hidden";
 
 const onLoginSubmit = (e) => {
    e.preventDefault();
-   const username = loginInput.value;
    loginForm.classList.add(HIDDEN_CLASSNAME);
-   console.log(username);
+   const username = loginInput.value;
+   
+   // save & remember Value localStorage
+   // key & Value
+   // https://developer.mozilla.org/ko/docs/Web/API/Window/localStorage
+   localStorage.setItem("username", username);
+   
    greeting.innerText = `Hello ${username}`;
    greeting.classList.remove(HIDDEN_CLASSNAME);
 };
