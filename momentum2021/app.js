@@ -6,6 +6,13 @@ const HIDDEN_CLASSNAME = "hidden";
 const USERNAME_KEY = "username";
 // -----------------------------------------------------------
 
+const checkedUsername = localStorage.getItem(USERNAME_KEY);
+
+const paintGreetings = (username) => {
+   greeting.innerText = `Hello ${username}`;
+   greeting.classList.remove(HIDDEN_CLASSNAME);
+}
+
 const onLoginSubmit = (e) => {
    e.preventDefault();
    
@@ -16,12 +23,10 @@ const onLoginSubmit = (e) => {
    // key & Value
    // https://developer.mozilla.org/ko/docs/Web/API/Window/localStorage
    localStorage.setItem(USERNAME_KEY, username);
-   
-   greeting.innerText = `Hello ${username}`;
-   greeting.classList.remove(HIDDEN_CLASSNAME);
+
+   paintGreetings(username);
 };
 
-const checkedUsername = localStorage.getItem(USERNAME_KEY);
 
 if(checkedUsername === null){
    // show the form
@@ -29,6 +34,5 @@ if(checkedUsername === null){
    loginForm.addEventListener("submit",onLoginSubmit);
 }else{
    // show the greeting
-   greeting.innerText = `Hello ${checkedUsername}`;
-   greeting.classList.remove(HIDDEN_CLASSNAME);
+   paintGreetings(checkedUsername);
 }
