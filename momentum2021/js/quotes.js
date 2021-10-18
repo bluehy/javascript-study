@@ -35,10 +35,20 @@ const quotes = [
       quote: "길을 아는 것과 그 길을 걷는 것은 분명히 다르다.",
       author: "모피어스"
    },
+   {
+      quote: "영원히 살 것처럼 꿈을 꾸고, 오늘 죽을 것처럼 살아라.",
+      author: "제임스 딘"
+   },
 ];
 
 const quote = document.querySelector("#quote span:first-child");
 const author = document.querySelector("#quote span:last-child");
 // -----------------------------------------------------------
 
-console.log(quotes[0]);
+// console.log(quotes[quotes.length - 1]);
+// Math module
+// Math.random() : 0~1 사이의 random한 수치 
+// Math.round(number) : number를 반올림
+// Math.ceil(number) : number를 올림
+// Math.floor(number) : number를 내림
+console.log(quotes[Math.floor(Math.random() * quotes.length)]);
