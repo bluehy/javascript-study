@@ -51,4 +51,7 @@ const author = document.querySelector("#quote span:last-child");
 // Math.round(number) : number를 반올림
 // Math.ceil(number) : number를 올림
 // Math.floor(number) : number를 내림
-console.log(quotes[Math.floor(Math.random() * quotes.length)]);
+const todaysQuotes = quotes[Math.floor(Math.random() * quotes.length)];
+
+quote.innerText = todaysQuotes.quote;
+author.innerText = todaysQuotes.author;
