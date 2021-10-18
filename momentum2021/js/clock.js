@@ -3,7 +3,14 @@ const clock = document.querySelector("h2#time");
 
 const tickingTime = () => {
    const date = new Date();
-   clock.innerText = `${date.getHours() ? `0${date.getHours()}`: `${date.getHours()}`}:${date.getMinutes() < 10 ? `0${date.getMinutes()}`:`${date.getMinutes()}`}:${date.getSeconds() < 10 ? `0${date.getSeconds()}`: `${date.getSeconds()}`}`;
+   const hours = String(date.getHours()).padStart(2,"0");
+   // getHours() = number. padStart를 사용하려면 String으로 바꿔주어야함.
+   const min = String(date.getMinutes()).padStart(2,"0");
+   const sec = String(date.getSeconds()).padStart(2,"0");
+   // clock.innerText = `${date.getHours() ? `0${date.getHours()}`: `${date.getHours()}`}:${date.getMinutes() < 10 ? `0${date.getMinutes()}`:`${date.getMinutes()}`}:${date.getSeconds() < 10 ? `0${date.getSeconds()}`: `${date.getSeconds()}`}`;
+   // padStart(maxLength, fillString) : 앞에 String을 채워줌
+   // padEnd(maxLength, fillString) : 뒤에 String을 채워줌
+   clock.innerText = `${hours} : ${min} : ${sec}`;
 }
 
 tickingTime();
