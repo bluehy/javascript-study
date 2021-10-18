@@ -43,7 +43,6 @@ const quotes = [
 
 const quote = document.querySelector("#quote span:first-child");
 const author = document.querySelector("#quote span:last-child");
-// -----------------------------------------------------------
 
 // console.log(quotes[quotes.length - 1]);
 // Math module
@@ -52,6 +51,7 @@ const author = document.querySelector("#quote span:last-child");
 // Math.ceil(number) : number를 올림
 // Math.floor(number) : number를 내림
 const todaysQuotes = quotes[Math.floor(Math.random() * quotes.length)];
+// -----------------------------------------------------------
 
 quote.innerText = todaysQuotes.quote;
 author.innerText = todaysQuotes.author;
