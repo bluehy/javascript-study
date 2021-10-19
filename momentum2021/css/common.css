@@ -2,12 +2,15 @@
 .hidden {
    display:none;
 }
-header, main {
-   margin-bottom: 10px;
-}
 
 body{
+   width: 100vw;
+   height: 100vh;
    padding: 5px;
+}
+
+header, main {
+   margin-bottom: 10px;
 }
 
 h1 {

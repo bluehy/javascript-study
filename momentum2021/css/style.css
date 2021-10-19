@@ -9,6 +9,11 @@ form {
    margin: 10px 0 ;
 }
 
+img{
+   width: 100%;
+   height: auto;
+}
+
 ul{
    width: auto;
    height: auto;
