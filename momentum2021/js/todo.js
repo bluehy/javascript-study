@@ -2,8 +2,12 @@ const toDoForm = document.querySelector("#todoForm");
 const toDoInput = toDoForm.querySelector("input");
 const toDoUl = document.querySelector("#todoUl");
 
-
+const savedTodos = [];
 // ==================================================
+
+const savedTodo = () => {
+   localStorage.setItem("todoList", savedTodos);
+}
 
 const deleteTodo = (e) => {
    // console.log(e);
@@ -14,15 +18,15 @@ const deleteTodo = (e) => {
    targetLi.remove();
 }
 
-const paintToDo = (savedTodo) => {
-   // console.log(savedTodo);
+const paintToDo = (addTodo) => {
+   // console.log(addTodo);
    const myLi = document.createElement("li");
    const mySpan = document.createElement("span");
    const closeBtn = document.createElement("button");
    
    // add todo list
    myLi.appendChild(mySpan);
-   mySpan.innerText = `${savedTodo}`;
+   mySpan.innerText = `${addTodo}`;
 
    // add delete button
    closeBtn.innerText = "X";
@@ -40,6 +44,11 @@ const handleToDoSubmit = (event) => {
    // newTodo에 담은 후, toDoInput의 value를 비우는 것.
    toDoInput.value = "";
    
+   // push todos into savedTodos(localStorage)
+   savedTodos.push(newTodo);
+   // console.log(savedTodos);
+   savedTodo();
+
    // 입력한 todo 화면에 저장하기
    paintToDo(newTodo);
 };
