@@ -6,7 +6,10 @@ const savedTodos = [];
 // ==================================================
 
 const savedTodo = () => {
-   localStorage.setItem("todoList", savedTodos);
+   // localStorage.setItem("todoList", savedTodos);
+   // array그대로 string형식으로 LocalStorage에 저장하기 위해 JSON.stringify를 사용. 
+   // (LS에는 string형태로밖에 저장이 안됨)
+   localStorage.setItem("todoList", JSON.stringify(savedTodos));
 }
 
 const deleteTodo = (e) => {
