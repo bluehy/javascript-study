@@ -5,6 +5,16 @@ const toDoUl = document.querySelector("#todoUl");
 
 // ==================================================
 
+const paintToDo = (savedTodo) => {
+   // console.log(savedTodo);
+   const myLi = document.createElement("li");
+   const mySpan = document.createElement("span");
+   myLi.appendChild(mySpan);
+   mySpan.innerText = `${savedTodo}`;
+   toDoUl.appendChild(myLi);
+}
+
+
 const handleToDoSubmit = (event) => {
    event.preventDefault();
    const newTodo = toDoInput.value;
@@ -12,6 +22,7 @@ const handleToDoSubmit = (event) => {
    toDoInput.value = "";
    
    // 입력한 todo 화면에 저장하기
+   paintToDo(newTodo);
 };
 
 toDoForm.addEventListener("submit",handleToDoSubmit);
