@@ -20,13 +20,22 @@ const deleteTodo = (e) => {
    // console.dir(e.target);
    const targetLi = e.target.parentElement;
    // target은 event의 html element 정보를 줌
-   console.log(targetLi);
+   // console.log(targetLi);
    targetLi.remove();
 
    // localStorage에 삭제된 항목을 업데이트하는 단계가 필요.
    // array의 id를 이용해야함.
+   console.log(targetLi.id);
+   // array는 기본적으로 한 item을 제외하는 게 아니라, 지우고 새 array를 만들어내는 과정으로 update가 이루어진다.
+   // array.filter(function) : function결과가 true인 item만으로 구성된 새 array를 return한다
+   const removeToDo = (item) => {
+      return item.id !== parseInt(targetLi.id);
+      // number string은 서로를 다르게 인식 
+   };
+   toDosArr = toDosArr.filter(removeToDo);
    
-   
+   // localStorage에 업데이트
+   savedTodo();
 };
 
 const paintToDo = (addTodoObj) => {
