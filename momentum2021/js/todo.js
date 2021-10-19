@@ -4,7 +4,7 @@ const toDoUl = document.querySelector("#todoUl");
 
 const TODOS_KEY = "todoList";
 
-const toDos = [];
+let toDos = [];
 // ==================================================
 
 const savedTodo = () => {
@@ -43,7 +43,6 @@ const paintToDo = (addTodo) => {
    toDoUl.appendChild(myLi);
 }
 
-
 const handleToDoSubmit = (event) => {
    event.preventDefault();
    const newTodo = toDoInput.value;
@@ -59,20 +58,22 @@ const handleToDoSubmit = (event) => {
    paintToDo(newTodo);
 };
 
-const LoadingList = (item) => {
-   toDos.push(item);
-   savedTodo();
-   paintToDo(item);
-}
+// const LoadingList = (item) => {
+//    // toDos.push(item);
+//    // savedTodo();
+//    paintToDo(item);
+// }
 
 toDoForm.addEventListener("submit",handleToDoSubmit);
 
 const savedTodos = localStorage.getItem(TODOS_KEY);
+
 if(savedTodos !== null) {
    const parsedTodos = JSON.parse(savedTodos);
+   // restore toDos
+   toDos = parsedTodos;
    // console.log(parsedTodos);
    // array의 각 item에 function실행
    // array.forEach(function);
-   parsedTodos.forEach(LoadingList);
-
+   parsedTodos.forEach(paintToDo);
 };
