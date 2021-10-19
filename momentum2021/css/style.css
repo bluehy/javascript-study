@@ -8,3 +8,22 @@ button {
 form {
    margin: 10px 0 ;
 }
+
+ul{
+   width: auto;
+   height: auto;
+}
+
+li {
+   width: 200px;
+   height: 30px;
+   line-height: 30px;
+   position: relative;
+}
+
+li button {
+   position:absolute;
+   right:0;
+   width: 30px;
+   height: 100%;
+}

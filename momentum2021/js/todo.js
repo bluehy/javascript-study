@@ -4,27 +4,32 @@ const toDoUl = document.querySelector("#todoUl");
 
 const TODOS_KEY = "todoList";
 
-let toDos = [];
+let toDosArr = [];
 // ==================================================
 
 const savedTodo = () => {
    // localStorage.setItem(TODOS_KEY, toDos);
    // array그대로 string형식으로 LocalStorage에 저장하기 위해 JSON.stringify를 사용. 
    // (LS에는 string형태로밖에 저장이 안됨)
-   localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
+   localStorage.setItem(TODOS_KEY, JSON.stringify(toDosArr));
    // string을 JSON.parse를 통해 js object, array로 전환
-}
+};
 
 const deleteTodo = (e) => {
    // console.log(e);
    // console.dir(e.target);
    const targetLi = e.target.parentElement;
    // target은 event의 html element 정보를 줌
-   // console.log(targetLi);
+   console.log(targetLi);
    targetLi.remove();
-}
 
-const paintToDo = (addTodo) => {
+   // localStorage에 삭제된 항목을 업데이트하는 단계가 필요.
+   // array의 id를 이용해야함.
+   
+   
+};
+
+const paintToDo = (addTodoObj) => {
    // console.log(addTodo);
    const myLi = document.createElement("li");
    const mySpan = document.createElement("span");
@@ -32,7 +37,8 @@ const paintToDo = (addTodo) => {
    
    // add todo list
    myLi.appendChild(mySpan);
-   mySpan.innerText = `${addTodo}`;
+   mySpan.innerText = addTodoObj.text;
+   myLi.id = addTodoObj.id;
 
    // add delete button
    closeBtn.innerText = "X";
@@ -41,7 +47,7 @@ const paintToDo = (addTodo) => {
 
    // paint TodoUl
    toDoUl.appendChild(myLi);
-}
+};
 
 const handleToDoSubmit = (event) => {
    event.preventDefault();
@@ -50,12 +56,15 @@ const handleToDoSubmit = (event) => {
    toDoInput.value = "";
    
    // push todos into toDos(localStorage)
-   toDos.push(newTodo);
-   // console.log(toDos);
+   const newTodoObj = {
+      id: Date.now(),
+      text: newTodo
+   }
+   toDosArr.push(newTodoObj);
    savedTodo();
 
    // 입력한 todo 화면에 저장하기
-   paintToDo(newTodo);
+   paintToDo(newTodoObj);
 };
 
 // const LoadingList = (item) => {
@@ -71,7 +80,7 @@ const savedTodos = localStorage.getItem(TODOS_KEY);
 if(savedTodos !== null) {
    const parsedTodos = JSON.parse(savedTodos);
    // restore toDos
-   toDos = parsedTodos;
+   toDosArr = parsedTodos;
    // console.log(parsedTodos);
    // array의 각 item에 function실행
    // array.forEach(function);
